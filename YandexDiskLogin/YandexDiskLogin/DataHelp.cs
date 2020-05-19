@@ -26,30 +26,32 @@ namespace YandexDiskLogin
         {
             if (selectdriver == "c")
             {
-                webDriver = new ChromeDriver(@"\YandexDiskLogin\");
+                webDriver = new ChromeDriver(@"c:\Users\Anton\source\repos\anton88st\YandexDiskLogin\YandexDiskLogin\");
             }
             if (selectdriver == "f")
             {
-                webDriver = new FirefoxDriver(@"c:\Users\Antony\source\repos\YandexDiskLogin\");
+                webDriver = new FirefoxDriver(@"c:\Users\Anton\source\repos\anton88st\YandexDiskLogin\YandexDiskLogin\");
             }
             if (selectdriver == "e")
             {
-                webDriver = new EdgeDriver(@"c:\Users\Antony\source\repos\YandexDiskLogin\");
+                webDriver = new EdgeDriver(@"c:\Users\Anton\source\repos\anton88st\YandexDiskLogin\YandexDiskLogin\");
             }
             return webDriver;
 
         }
-        public void Test(IWebDriver webdriver)
+        public void Test(IWebDriver webDriver)
         {
             webDriver.Navigate().GoToUrl(Url);
             webDriver.FindElement(By.XPath("//a[@class='button button_login header__login-link']")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(5000);
-            webDriver.FindElement(By.XPath("//input[@id='passp-field-login']")).SendKeys("anthon.sta@yandex.by");
+            System.Threading.Thread.Sleep(3000);
+            webDriver.FindElement(By.XPath("//input[@id='passp-field-login']")).Clear();
+            webDriver.FindElement(By.XPath("//input[@id='passp-field-login']")).SendKeys(Username);
             webDriver.FindElement(By.XPath("//button[@class='control button2 button2_view_classic button2_size_l button2_theme_action button2_width_max button2_type_submit passp-form-button']")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(5000);
-            webDriver.FindElement(By.XPath("//input[@id='passp-field-passwd']")).SendKeys("Zm2vUNUfLyFDzj7");
+            System.Threading.Thread.Sleep(3000);
+            webDriver.FindElement(By.XPath("//input[@id='passp-field-passwd']")).Clear();
+            webDriver.FindElement(By.XPath("//input[@id='passp-field-passwd']")).SendKeys(Password);
             webDriver.FindElement(By.XPath("//button[@class='control button2 button2_view_classic button2_size_l button2_theme_action button2_width_max button2_type_submit passp-form-button']")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(10000);
+            System.Threading.Thread.Sleep(8000);
             webDriver.Close();
         }
         public void Start(string browser)
