@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
-
+using System.IO;
 
 namespace YandexDiskLogin
 {
@@ -15,26 +15,28 @@ namespace YandexDiskLogin
         string Username { get; set; }
         string Password { get; set; }
         string Url { get; set; }
+        string locationdrivers { get; set; }
         public IWebDriver webDriver;
         public DataHelp()
         {
             Username = "anthon.sta@yandex.by";
             Password = "Zm2vUNUfLyFDzj7";
             Url = "https://disk.yandex.ru";
+            locationdrivers = Path.Combine(Environment.CurrentDirectory, @"..\..\..\Resources\");
         }
         public IWebDriver Select(string selectdriver)
         {
             if (selectdriver == "c")
             {
-                webDriver = new ChromeDriver(@"c:\Users\Anton\source\repos\anton88st\YandexDiskLogin\YandexDiskLogin\");
+                webDriver = new ChromeDriver(locationdrivers);
             }
             if (selectdriver == "f")
             {
-                webDriver = new FirefoxDriver(@"c:\Users\Anton\source\repos\anton88st\YandexDiskLogin\YandexDiskLogin\");
+                webDriver = new FirefoxDriver(locationdrivers);
             }
             if (selectdriver == "e")
             {
-                webDriver = new EdgeDriver(@"c:\Users\Anton\source\repos\anton88st\YandexDiskLogin\YandexDiskLogin\");
+                webDriver = new EdgeDriver(locationdrivers);
             }
             return webDriver;
 
