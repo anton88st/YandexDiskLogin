@@ -22,7 +22,7 @@ namespace YandexDiskLogin
             Username = "anthon.sta@yandex.by";
             Password = "Zm2vUNUfLyFDzj7";
             Url = "https://disk.yandex.ru";
-            locationdrivers = Path.Combine(Environment.CurrentDirectory, @"..\..\..\Resources\");
+            locationdrivers = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\Resources\");
         }
         public IWebDriver Select(string selectdriver)
         {
