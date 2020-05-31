@@ -26,17 +26,16 @@ namespace MailRuLogIn
         public void Test()
         {
             EdgeDriver webDriver = new EdgeDriver(locate);
+            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             webDriver.Navigate().GoToUrl("https://mail.ru");
-            System.Threading.Thread.Sleep(3000);
             webDriver.FindElement(By.XPath("//input[@id='mailbox:login']")).Clear();
             webDriver.FindElement(By.CssSelector("input[name='login']")).SendKeys("itectart_88_training");
-            webDriver.FindElement(By.CssSelector("input.o-control")).SendKeys(Keys.Enter);
+            webDriver.FindElement(By.CssSelector("input.o-control")).Click();
             webDriver.FindElement(By.XPath("//input[@id='mailbox:password']")).Clear();
             webDriver.FindElement(By.CssSelector("input[name='password']")).SendKeys("12345678it");
             webDriver.FindElement(By.XPath("//input[@class='o-control']"));
-            webDriver.FindElement(By.CssSelector("input.o-control")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(15000);
+            webDriver.FindElement(By.CssSelector("input.o-control")).Click();
             webDriver.Close();
 
         }
@@ -44,33 +43,26 @@ namespace MailRuLogIn
         public void TestMainPage()
         {
             IWebDriver webDriver = new EdgeDriver(locate);
+            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             webDriver.Navigate().GoToUrl("https://mail.ru");
-            System.Threading.Thread.Sleep(3000);
             webDriver.FindElement(By.XPath("//input[@id='mailbox:login']")).Clear();
             webDriver.FindElement(By.CssSelector("input[name='login']")).SendKeys("itectart_88_training");
-            webDriver.FindElement(By.CssSelector("input.o-control")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(3000);
+            webDriver.FindElement(By.CssSelector("input.o-control")).Click();
             webDriver.FindElement(By.XPath("//input[@id='mailbox:password']")).Clear();
             webDriver.FindElement(By.CssSelector("input[name='password']")).SendKeys("12345678it");
             webDriver.FindElement(By.XPath("//input[@class='o-control']"));
-            webDriver.FindElement(By.CssSelector("input.o-control")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(50000);
-            webDriver.FindElement(By.CssSelector("a[href^='/sent/']")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(3000);
-            webDriver.FindElement(By.CssSelector("a[href^='/drafts/']")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(3000);
-            webDriver.FindElement(By.CssSelector("a[href^='/spam/']")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(3000);
-            webDriver.FindElement(By.CssSelector("a[href^='/trash/'")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(3000);
-            webDriver.FindElement(By.CssSelector("a[href^='/inbox/']")).SendKeys(Keys.Enter);
-            System.Threading.Thread.Sleep(5000);
+            webDriver.FindElement(By.CssSelector("input.o-control")).Click();
+            webDriver.FindElement(By.CssSelector("a[href^='/sent/']")).Click();
+            webDriver.FindElement(By.CssSelector("a[href^='/drafts/']")).Click();
+            webDriver.FindElement(By.CssSelector("a[href^='/spam/']")).Click();
+            webDriver.FindElement(By.CssSelector("a[href^='/trash/'")).Click();
+            webDriver.FindElement(By.CssSelector("a[href^='/inbox/']")).Click();
             Actions action = new Actions(webDriver);
             action.MoveToElement(webDriver.FindElement(By.CssSelector("div.ll-av__container"))).Click().Perform();
             action.MoveToElement(webDriver.FindElement(By.XPath("//input[@class='mb-checkbox__input']"))).Click();
-            System.Threading.Thread.Sleep(10000);
+            webDriver.FindElement(By.XPath("//span[@title='Удалить']"));
+            webDriver.Close();
         }
-        
     }
 }

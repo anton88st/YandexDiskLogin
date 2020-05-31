@@ -18,14 +18,12 @@ namespace GoogleCom
             locate = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\Resources\");
 
         }
-
         [Fact]
         public void Test()
         {
             EdgeDriver webDriver = new EdgeDriver(locate);
-
+            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             webDriver.Navigate().GoToUrl("https://google.com");
-            System.Threading.Thread.Sleep(3000);
             webDriver.FindElement(By.XPath("//input[@class='gLFyf gsfi']"));
             webDriver.FindElement(By.CssSelector("input.gLFyf.gsfi"));
             webDriver.FindElement(By.XPath("//input[@class='gNO89b']"));
@@ -33,7 +31,6 @@ namespace GoogleCom
             webDriver.FindElement(By.XPath("//input[@class='RNmpXc']"));
             webDriver.FindElement(By.CssSelector("input.RNmpXc"));
             webDriver.Close();
-
         }
     }
 }
