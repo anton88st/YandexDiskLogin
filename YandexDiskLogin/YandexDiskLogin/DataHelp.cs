@@ -63,7 +63,35 @@ namespace YandexDiskLogin
         public void Start(string browser)
         {
             Select(browser);
-            Test(webDriver);
+            VCIReports(webDriver);
+        }
+
+        
+        public void VCIReports(IWebDriver webDriver)
+        {
+           /* IWebDriver edge = new EdgeDriver();*/
+            webDriver.Navigate().GoToUrl("https://vciadmin.qa.flex.cafe/org");
+
+            webDriver.FindElement(By.XPath("//input[@id='username']")).Clear();
+            webDriver.FindElement(By.XPath("//input[@id='username']")).SendKeys("Automation_Seller");
+            webDriver.FindElement(By.XPath("//input[@id='password']")).Clear();
+            webDriver.FindElement(By.XPath("//input[@id='password']")).SendKeys("Password1!");
+            webDriver.FindElement(By.XPath("//button[@class='btn ladda-button']")).Click();
+            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            webDriver.FindElement(By.XPath("//a[@class='nav-reports']")).Click();
+            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            webDriver.Manage().Window.Maximize();
+            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10))
+    .       Until(ExpectedConditions.ElementIsVisible(By.XPath("//iframe[starts-with(@src,'http')]"))); 
+            webDriver.SwitchTo().Frame(webDriver.FindElement(By.XPath("//iframe[starts-with(@src,'http')]")));
+
+            webDriver.FindElement(By.CssSelector("div.mstr-nav-icon.icon-toc")).Click();
+            webDriver.FindElement(By.XPath("//a=[@aria-label='Vehicles Active page']")).Click();
+
+
+            webDriver.Close();
         }
     }
 }

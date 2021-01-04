@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1878f72a_002Dab29_002D4e19_002D9f47_002Dce0171e71aa3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestInEdge #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::751BE8B1-8A95-4C7E-A482-95AF1B61A7C9::.NETCoreApp,Version=v2.1::YandexDiskLogin.YandexDiskLoginTest.TestInEdge&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a2f62d18_002D83eb_002D4076_002D9632_002D99da3ec7e869/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestInEdge" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -64,5 +64,6 @@ namespace MailRuLogIn
             webDriver.FindElement(By.XPath("//span[@title='Удалить']"));
             webDriver.Close();
         }
+        
     }
 }
